@@ -2,10 +2,12 @@
 
 ' Channel entry point
 sub Main()
+    print "=== main.brs Main() ==="
     ShowChannelRSGScreen()
 end sub
 
 sub ShowChannelRSGScreen()
+    print "=== main.brs ShowChannelRSGScreen() ==="
     ' The roSGScreen object is a SceneGraph canvas that displays the contents of a Scene node instance
     screen = CreateObject("roSGScreen")
     ' message port is the place where events are sent

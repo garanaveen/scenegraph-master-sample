@@ -3,6 +3,7 @@
 ' entry point of  MainScene
 ' Note that we need to import this file in MainScene.xml using relative path.
 sub Init()
+    print "Init from MainScene.brs"
     ' set background color for scene. Applied only if backgroundUri has empty value
     m.top.backgroundColor = "0x662D91"
     m.top.backgroundUri= "pkg:/images/background.jpg"
@@ -14,6 +15,7 @@ end sub
 
 ' The OnKeyEvent() function receives remote control key events
 function OnkeyEvent(key as String, press as Boolean) as Boolean
+    print "OnKeyEvent from MainScene.brs"
     result = false
     if press
         ' handle "back" key press

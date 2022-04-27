@@ -3,6 +3,7 @@
 ' Note that we need to import this file in MainScene.xml using relative path.
 
 sub RunContentTask()
+    print "ContentTaskLogic.brs RunContentTask()"
     m.contentTask = CreateObject("roSGNode", "MainLoaderTask") ' create task for feed retrieving
     ' observe content so we can know when feed content will be parsed
     m.contentTask.ObserveField("content", "OnMainContentLoaded")
@@ -11,6 +12,7 @@ sub RunContentTask()
 end sub
 
 sub OnMainContentLoaded() ' invoked when content is ready to be used
+    print "ContentTaskLogic.brs OnMainContentLoaded()"
     m.GridScreen.SetFocus(true) ' set focus to GridScreen
     m.loadingIndicator.visible = false ' hide loading indicator because content was retrieved
     m.GridScreen.content = m.contentTask.content ' populate GridScreen with content

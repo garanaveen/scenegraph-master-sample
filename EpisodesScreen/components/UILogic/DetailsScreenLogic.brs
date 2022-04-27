@@ -3,6 +3,7 @@
 ' Note that we need to import this file in MainScene.xml using relative path.
 
 sub ShowDetailsScreen(content as Object, selectedItem as Integer)
+    print "ShowDetailsScreen from DetailsScreenLogic.brs"
     ' create new instance of details screen
     detailsScreen = CreateObject("roSGNode", "DetailsScreen")
     detailsScreen.content = content
@@ -13,6 +14,7 @@ sub ShowDetailsScreen(content as Object, selectedItem as Integer)
 end sub
 
 sub OnDetailsScreenVisibilityChanged(event as Object) ' invoked when DetailsScreen "visible" field is changed
+    print "OnDetailsScreenVisibilityChanged from DetailsScreenLogic.brs"
     visible = event.GetData()
     detailsScreen = event.GetRoSGNode()
     currentScreen = GetCurrentScreen()
@@ -30,10 +32,12 @@ sub OnDetailsScreenVisibilityChanged(event as Object) ' invoked when DetailsScre
 end sub
 
 sub OnButtonSelected(event) ' invoked when button in DetailsScreen is pressed
+    print "OnButtonSelected from DetailsScreenLogic.brs"
     details = event.GetRoSGNode()
     content = details.content
     buttonIndex = event.getData() ' index of selected button
     selectedItem = details.itemFocused
+    STOP
     if buttonIndex = 0 ' check if "Play" button is pressed
         ' create Video node and start playback
         HandlePlayButton(content, selectedItem)
@@ -44,6 +48,7 @@ sub OnButtonSelected(event) ' invoked when button in DetailsScreen is pressed
 end sub
 
 sub HandlePlayButton(content as Object, selectedItem as Integer)
+    print "HandlePlayButton from DetailsScreenLogic.brs"
     itemContent = content.GetChild(selectedItem)
     ' if content child is serial with seasons
     ' we will set all episodes of serial to playlist

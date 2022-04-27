@@ -7,6 +7,7 @@ sub InitScreenStack()
 end sub
 
 sub ShowScreen(node as Object)
+    print "ScreenStackLogic.brs ShowScreen"
     prev = m.screenStack.Peek() ' take current screen from screen stack but don't delete it
     if prev <> invalid
         prev.visible = false ' hide current screen if it exist
@@ -19,6 +20,7 @@ sub ShowScreen(node as Object)
 end sub
 
 sub CloseScreen(node as Object)
+    print "ScreenStackLogic.brs ShowScreen"
     if node = invalid OR (m.screenStack.Peek() <> invalid AND m.screenStack.Peek().IsSameNode(node))
         last = m.screenStack.Pop() ' remove screen from screenStack
         last.visible = false ' hide screen
